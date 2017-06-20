@@ -1,0 +1,35 @@
+@media only screen and (min-device-width: 1240px) and (max-device-width: 1300px) {
+  .b-index-page{
+    .container{
+      width: 1230px;
+    }
+  }
+}
+
+@media (min-width: 1900px){
+  .b-right-panel{
+    background-color: #f0f0f0;
+    padding: 20px;
+    &.active{
+      right: calc(50% - 590px - 375px);
+    }
+    .e-right-panel-container{
+      visibility: visible;
+      opacity: 1;
+    }
+    .b-button-menu{
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  .b-button-right-panel{
+    visibility: hidden;
+    opacity: 0;
+  }
+  .b-header{
+    .b-button-menu{
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+}

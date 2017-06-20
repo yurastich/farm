@@ -1,0 +1,934 @@
+//todo Colors
+$brown: #471f16;
+$brown-light: #803f31;
+$gray: #471f16;
+$border: #eaeaea;
+$green: #669b48;
+$green-button: #6ab73f;
+$bg: #edefec;
+$header-height: 50px;
+
+
+$header: #220616;
+$input-placeholder: #fff;
+$btn: $brown;
+$btn-h: #fff;
+$selection: $brown;
+$next-input-margin: 20px;
+
+body, ul, p, h1, h2, h3, h4, a, button {
+  margin:          0;
+  padding:         0;
+  list-style:      none;
+  text-decoration: none;
+  outline:         none;
+  border:          none;
+}
+
+p, h1, h2, h3, h4, span, input, img {
+  &::selection {
+    background: $selection; /* Safari */
+    color:      #ffffff;
+  }
+  &::-moz-selection {
+    background: $selection; /* Firefox */
+    color:      #ffffff;
+  }
+}
+
+.wrap{
+  &.m-wrap-popup{
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+button {
+  color:            inherit;
+  background-color: transparent;
+  cursor:           pointer;
+  a {
+    display: block;
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+label {
+  font-weight:   400;
+  margin-bottom: 0;
+  cursor:        pointer;
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+  &:hover {
+    color:           inherit;
+    text-decoration: none;
+  }
+  &:focus {
+    outline:         none;
+    color:           inherit;
+    text-decoration: none;
+  }
+}
+
+img {
+  width: 100%;
+}
+
+// todo Hover def Text
+@mixin hoverText(){
+  @include transition-def();
+  cursor: pointer;
+  &:hover{
+    color: $brown;
+  }
+};
+
+
+// todo Background
+@mixin bg {
+  background-repeat:   no-repeat;
+  background-position: center;
+  background-size:     cover;
+}
+
+// todo Transition
+@mixin transition-def {
+  transition:         all .3s;
+  -webkit-transition: all .3s;
+  -moz-transition:    all .3s;
+  -o-transition:      all .3s;
+}
+
+@mixin clearfix {
+  &:after {
+    visibility: hidden;
+    display:    block;
+    content:    "";
+    clear:      both;
+    height:     0;
+  }
+}
+
+form {
+  @include clearfix();
+}
+
+input, select, textarea {
+  &:focus {
+    outline: none;
+    //-webkit-box-shadow: 0px 1px 5px 0px $green;
+    //-moz-box-shadow:    0px 1px 5px 0px $green;
+    //box-shadow:         0px 1px 5px 0px $green;
+  }
+  &::-webkit-input-placeholder {
+    color: $input-placeholder;
+  }
+  &::-moz-placeholder {
+    color: $input-placeholder;
+  }
+  /* Firefox 19+ */
+  &:-moz-placeholder {
+    color: $input-placeholder;
+  }
+  /* Firefox 18- */
+  &:-ms-input-placeholder {
+    color: $input-placeholder;
+  }
+}
+
+// todo Active
+
+@mixin active-def {
+  //background-color: $blue;
+  //color:#fff !important;
+  //border-color: $blue-dark !important;
+  //background-image: none !important;
+  //box-shadow:         inset 0 1px 19px 0 $blue-dark;
+  @include transition-def();
+  @include icon-white();
+  .glyphicon {
+    @include transition-def();
+    color: #ffffff;
+  }
+  .b-close {
+    &:before, &:after {
+      background-color: #ffffff;
+    }
+    &.m-dark {
+      &:before, &:after {
+        background-color: #ffffff;
+      }
+    }
+  }
+  .b-icon {
+    color: #ffffff;
+  }
+  .color-blue {
+    color: #ffffff;
+  }
+  .b-bubble-circle {
+    .b-icon {
+      .path2 {
+        color: #ffffff;
+      }
+    }
+  }
+  & > .e-item-container {
+    & > .e-item-text-block {
+      box-shadow: none;
+    }
+  }
+
+}
+
+// todo Lines
+@mixin vertical-line-left {
+  position: relative;
+  &:before {
+    content:          "";
+    position:         absolute;
+    top:              15px;
+    bottom:           15px;
+    width:            1px;
+    background-color: $gray;
+    left:             0;
+  }
+}
+
+@mixin vertical-line-right {
+  position: relative;
+  &:before {
+    content:          "";
+    position:         absolute;
+    top:              15px;
+    bottom:           15px;
+    width:            1px;
+    background-color: $gray;
+    right:            0;
+  }
+}
+
+@mixin shadow-def {
+  box-shadow: 0px 10px 81px 0px rgba(209, 186, 200, 0.83);
+}
+
+@mixin acute {
+  position:     relative;
+  border:       1px solid $gray;
+  border-right: none;
+  &:before, &:after {
+    content:          "";
+    position:         absolute;
+    width:            1px;
+    height:           23px;
+    right:            -6px;
+    background-color: $gray;
+  }
+  &:before {
+    top: -2px;
+    transform: rotate(150deg);
+  }
+  &:after {
+    bottom: -2px;
+    transform: rotate(-150deg);
+  }
+}
+
+// todo Fix Footer
+html,
+body {
+  height: 100%;
+}
+
+.wrap {
+  display:        flex;
+  flex-direction: column;
+  min-height:         100%;
+  position:       relative;
+}
+
+.content {
+  flex:     1 0 auto;
+  position: relative;
+  z-index:  3;
+}
+
+.b-footer {
+  flex:     0 0 auto;
+  position: relative;
+  z-index:  4;
+}
+
+// todo End Fix Footer
+
+input, textarea, select {
+  -webkit-appearance: none !important;
+}
+
+html {
+  -webkit-text-size-adjust: none;
+}
+
+@mixin stroke($stroke, $color) {
+  text-shadow: stroke($stroke, $color);
+}
+
+@mixin placeholder-color($color) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+  /* Firefox 19+ */
+  &:-moz-placeholder {
+    color: $color;
+  }
+  /* Firefox 18- */
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}
+
+// todo Elements
+.b-close {
+  width:  42px;
+  height: 42px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+  &:before, &:after {
+    content:          "";
+    position:         absolute;
+    top:              -3px;
+    left:             16px;
+    width:            3px;
+    height:           48px;
+    background-color: #000;
+    @include transition-def();
+  }
+  &:before {
+    transform: rotate(-45deg);
+  }
+  &:after {
+    transform: rotate(45deg);
+  }
+  &:hover {
+    &:before, &:after {
+      background-color: #ff2c2c;
+    }
+  }
+  &.m-close-glob{
+    @include transition-def();
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    &.m-close-visible{
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.m-100 {
+  width: 100%;
+}
+
+.f-t {
+  font-weight: 100 !important;
+}
+
+.f-l {
+  font-weight: 300 !important;
+}
+
+.f-n {
+  font-weight: 400 !important;
+}
+
+.f-m {
+  font-weight: 500 !important;
+}
+
+.f-b {
+  font-weight: 700 !important;
+}
+.f-e{
+  font-weight: 900 !important;
+}
+
+.t {
+  display: table;
+  height:  100%;
+  width:   100%;
+  .c {
+    display:        table-cell;
+    vertical-align: middle;
+    text-align:     center;
+  }
+}
+
+.b-popup-overlay {
+  opacity:    0;
+  display:    none;
+  box-sizing: border-box;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1043;
+  position: fixed;
+  outline: none !important;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: 0;
+  box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.52);
+  &.active {
+    display: block;
+  }
+  & > .b-close {
+    position: fixed !important;
+    top:      10px;
+    left:     auto;
+    right:    10px;
+  }
+  &>.e-popup-overlay-container{
+    text-align: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    padding: 30px;
+    &:before{
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    &>*{
+      display: inline-block;
+      vertical-align: middle;
+      text-align: left;
+    }
+  }
+}
+
+@media (max-width: 767px){
+  .b-popup-overlay {
+    &>.e-popup-overlay-container{
+      padding: 8px;
+    }
+  }
+}
+
+.b-input-container {
+  width:    100%;
+  display:  block;
+  position: relative;
+  .e-input-container-icon {
+    position:       absolute;
+    top:            calc(50% - 10.5px);
+    left:           0;
+    z-index:        1;
+    color:          $gray;;
+    width:          45px;
+    font-size:      21px;
+    line-height:    21px;
+    display:        inline-block;
+    vertical-align: top;
+    text-align:     center;
+  }
+  & + .b-input-container {
+    margin-top: $next-input-margin;
+  }
+  &.m-icon {
+    &:before {
+      content:          '';
+      position:         absolute;
+      width:            1px;
+      top:              1px;
+      bottom:           1px;
+      left:             44px;
+      background-color: $gray;;
+    }
+    .b-input {
+      padding-left: 59px;
+    }
+  }
+  &.m-input-error {
+    .e-input-container-icon {
+
+    }
+    .b-input {
+
+      &:focus {
+        -webkit-box-shadow: 0px 1px 5px 0px;
+        -moz-box-shadow:    0px 1px 5px 0px;
+        box-shadow:         0px 1px 5px 0px;
+      }
+    }
+  }
+  &.m-100{
+    width: 100%;
+  }
+  &.m-50{
+    width: calc(50% - 11px);
+    float: left;
+    margin-top: 0;
+    margin-bottom: 15px;
+    &+.m-50{
+      margin-left: 22px;
+    }
+    &:nth-child(2n+1){
+      margin-left: 0;
+    }
+  }
+}
+
+@media (max-width: 479px) {
+  .b-input-container{
+    &.m-50{
+      width: 100%;
+      float: none;
+      &+.m-50{
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.b-input {
+  display:       block;
+  box-sizing:    border-box;
+  border:        1px solid $gray;
+  border-radius: 3px;
+  padding:       15px 15px 16px;
+  font-size:     16px;
+  line-height:   20px;
+  width:         100%;
+  font-weight:   400;
+  color:         $gray;
+  font-family:   "Ubuntu";
+}
+
+.b-overlay {
+  background-color: rgba(44, 110, 183, .4);
+  position:         fixed;
+  top:              0;
+  left:             0;
+  right:            0;
+  bottom:           0;
+  z-index:          5;
+  opacity:          0;
+  display:          none;
+  &.active {
+    display: block;
+  }
+  & > .b-close {
+    position: fixed !important;
+    top:      10px;
+    left:     auto;
+    right:    10px;
+  }
+}
+
+.b-checkbox {
+  display:        inline-block;
+  vertical-align: top;
+  position:       relative;
+  z-index:        2;
+  padding-left: 37px;
+  line-height: 24px;
+  .e-checkbox-check {
+    margin-bottom:    0;
+    display:          block;
+    cursor:           pointer;
+    box-sizing:       border-box;
+    width: 25px;
+    height: 25px;
+    border-radius: 4px;
+    overflow: hidden;
+    position: absolute;
+    top:calc(50% - 14px);
+    left: 0;
+    @include transition-def();
+    &:before {
+      content:     "";
+      position:    absolute;
+      border-radius:6px;
+      border: 2px solid $gray;
+      top:0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      transform:   rotate(0deg);
+      @include transition-def();
+    }
+  }
+  .e-checkbox-text{
+    font-size: 20px;
+    font-family: "Proxima Nova";
+    font-weight: 400;
+    color: $gray;
+    display: block;
+    cursor: pointer;
+    @include transition-def();
+  }
+  input {
+    display: none;
+    &:checked {
+      & + .e-checkbox-check {
+        background-color: $brown;
+        border-radius: 6px;
+        &:before {
+          transform:   rotate(45deg);
+          width: 12px;
+          height: 18px;
+          left: 7px;
+          top: 0px;
+          border-radius: 0px;
+          border-width: 4px;
+          border-color: $gray;
+          border-left-color: transparent;
+          border-top-color:  transparent;
+        }
+        &+.e-checkbox-text{
+          color: $brown;
+        }
+      }
+    }
+  }
+}
+
+.b-checkbox-container {
+  font-size: 0;
+  .e-checkbox-label {
+    font-size:      16px;
+    line-height:    17px;
+    padding-left:   7px;
+    margin-bottom:  0;
+    display:        inline-block;
+    vertical-align: top;
+    cursor:         pointer;
+    font-weight:    400;
+    width:          80%;
+  }
+}
+
+// todo ANDROID
+@keyframes clickeffect {
+  from {
+    opacity: 0.7;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+.anim {
+  position: relative;
+  overflow: hidden;
+}
+
+.effect {
+  margin:            -100px;
+  width:             200px;
+  height:            200px;
+  border-radius:     100px;
+  position:          absolute;
+  background:        rgba(255, 255, 255, 0.5);
+  transform: scale(0);
+  pointer-events:    none;
+  animation:         clickeffect 1s ease;
+}
+
+// todo END ANDROID
+
+.m-new-line {
+  display: block;
+}
+
+// todo Animate Background (добавить к родителю класс "b-bg", внутри создать "span" с классом "e-bg-img-container", в котором будет "span" с калссом "e-bg-img" и ему забить в "style="background-image: url('')")"
+// todo "e-bg-container"  добавить к контейнеру с контентом
+.b-bg {
+  overflow: hidden;
+  color:    #ffffff;
+  position: relative;
+  .e-bg-container{
+    position: relative;
+    z-index: 2;
+  }
+  .e-bg-img-container {
+    display:  block;
+    position: absolute;
+    top:      0;
+    left:     0;
+    right:    0;
+    bottom:   0;
+    &:before {
+      content:    "";
+      position:   absolute;
+      top:        0;
+      left:       0;
+      right:      0;
+      bottom:     0;
+      background: rgba(52, 52, 52, .8);
+      z-index:    1;
+    }
+  }
+  .e-bg-img {
+    @include bg();
+    height:                            100%;
+    display:                           block;
+    animation-name:                    zoomBg;
+    animation-duration:                120s;
+    animation-iteration-count:         infinite;
+  }
+}
+
+@keyframes zoomBg {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+
+// todo END Animate Background
+
+.container {
+  position: relative;
+  z-index:  3;
+
+}
+
+@mixin box-shadow{
+  box-shadow:         0px 1px 10px 0px rgba(50, 50, 50, 0.3);
+  @include transition-def();
+  &:hover{
+    box-shadow:         0px 1px 10px 0px rgba(50, 50, 50, .75);
+  }
+}
+
+@keyframes jumpIconsSidebar {
+  0% {
+    transform: translateY(0px);
+  }
+  15% {
+    transform: translateY(-20px);
+  }
+  30% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(0px);
+  }
+  70% {
+    transform: translateY(-10px);
+  }
+  80% {
+    transform: translateY(0px);
+  }
+  90% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+// Цвета для навигации
+$nav-bg: rgba(138,95,173,0.5); // Цвет фона навигации
+$nav-bg-h: rgba(138,95,173,0.9); // Цвет фона при наведеные на навигацию
+$nav-link: $border; // Цвет ссылки
+$nav-link-h: #fff; // Цвет принаведение на ссылку
+
+// Навигация верстки
+.b-all-pages{
+  position: fixed;
+  top: 0;
+  left: -200px;
+  bottom: 0;
+  width: 220px;
+  overflow: auto;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 20px 10px;
+  list-style: none;
+  background-color: $nav-bg;
+  z-index: 999;
+  @include transition-def();
+  &:hover{
+    left: 0;
+    background-color: $nav-bg-h;
+  }
+  .e-all-pages-item{
+    @include transition-def();
+    padding-top: 10px;
+    &:first-child{
+      padding-top: 0;
+    }
+  }
+  .e-all-pages-link{
+    color: $nav-link;
+    font-size: 16px;
+    line-height: 18px;
+    cursor: pointer;
+    font-weight: 400;
+    display: inline-block;
+    vertical-align: top;
+    transform: translateX(0px);
+    @include transition-def();
+    &:hover{
+      color: $nav-link-h;
+      transform: translateX(10px);
+    }
+  }
+}
+// Навигация верстки
+
+@mixin icomoon{
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin font-awesome{
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin bootstrap-icon{
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin ellipsis{
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  text-overflow: ellipsis;
+}
+
+@mixin underline{
+  position: relative;
+  color: $gray;
+  @include transition-def();
+  &:before{
+    position: absolute;
+    content: "";
+    height: 1px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: $gray;
+    @include transition-def();
+  }
+  &:hover, &.active{
+    color: $brown;
+    &:before{
+      left: 50%;
+      width: 0;
+      background-color: $brown;
+    }
+  }
+}
+
+@mixin underline-revers{
+  @include underline();
+  &:before{
+    left: 50%;
+    width: 0;
+  }
+  &:hover, &.active{
+    &:before{
+      width: 100%;
+      left: 0;
+    }
+  }
+}
+
+@mixin sizePercent{
+  position: relative;
+  &:before{
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+  .m-cont-size{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  img {
+    height: 100%;
+  }
+}
+
+@mixin animPhoto{
+  cursor: pointer;
+  overflow: hidden;
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: $brown;
+    opacity: .7;
+    content: "";
+    z-index: 1;
+    @include transition-def();
+    transform: rotate(180deg);
+  }
+  &:hover {
+    &:before {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: rotate(0deg);
+    }
+  }
+}
