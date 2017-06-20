@@ -250,17 +250,18 @@ $(document).ready(function () {
     var par = $(this).closest(".b-select-container, .js-par-sl"),
       dropPanel = par.find(".e-select-drop-panel, .js-sel-sl"),
       item = $(this).closest(".b-select-drop, .js-sel-sl").find(".e-select-drop-item, .js-sel-el"),
-      newText = $(this).text();
+      newTextContent = $(this).find(".e-select-text"),
+      newText = $(this).find(".e-select-text")[0].outerHTML;
 
     par.removeClass("active");
     item.removeClass("active");
     $(this).addClass("active");
-    $(this).closest(".b-select-container").find(".e-select-title").text(newText);
+    $(this).closest(".b-select-container").find(".e-select-title .e-select-text").replaceWith(newText);
   });
 
-  $(".b-scroll-bar").mCustomScrollbar({
-    axis:"y"
-  });
+  // $(".b-scroll-bar").mCustomScrollbar({
+  //   axis:"y"
+  // });
 
 // todo END Select
 
@@ -374,24 +375,6 @@ $(document).ready(function () {
     }
   });
   // todo END Universal Trigger Active
-
-  // b-info-search list on right panel
-  $(".e-info-search-header").click(function () {
-    var active = $(this).hasClass("active"),
-        list = $(this).closest(".e-info-search-item").find(".b-info-detail-search-list"),
-        lists = $(".b-info-detail-search-list"),
-        allHeader = $(".e-info-search-header");
-    if(!active){
-      allHeader.removeClass("active")
-      $(this).addClass("active");
-      lists.slideUp();
-      list.slideDown();
-    }else{
-      $(this).removeClass("active");
-      lists.slideUp();
-      allHeader.removeClass("active")
-    }
-  });
 
 
   androidAnimate();

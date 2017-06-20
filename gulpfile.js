@@ -65,10 +65,10 @@ gulp.task("media", function () {
     // .pipe(imagemin())
     .pipe(gulp.dest('./prod/img'));
 
-  // gulp.src([
-  //     'dev/fonts/*'
-  //   ])
-  //   .pipe(gulp.dest('./prod/fonts'));
+  gulp.src([
+      'dev/fonts/*'
+    ])
+    .pipe(gulp.dest('./prod/fonts'));
 
 });
 

@@ -16,7 +16,7 @@ body{
 
 .content {
   @include transition-def();
-  width: 1440px;
+  //width: 1440px;
 }
 
 .b-link{
@@ -188,56 +188,71 @@ section {
 }
 
 .b-input {
-  border-radius: 30px;
   font-size: 14px;
   line-height: 18px;
   font-weight: 400;
   border: none;
-  font-family: "SegoeUI";
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 14px 29px 17px;
+  border-bottom: 1px solid #fff;
+  font-family: "Roboto";
+  padding: 6px 25px 4px;
   color: #fff;
+  border-radius: 0;
+  @include transition-def();
+  background-color: transparent;
+  &:hover, &:focus{
+    color: $brown;
+    border-color: $brown;
+  }
+}
+
+.b-input-container {
+  position: relative;
+  &.m-input-search{
+    .e-search-icon{
+      position: absolute;
+      font-size: 14px;
+      line-height: 14px;
+      left: 2px;
+      top: calc(50% - 7px);
+      color: #fff;
+      @include transition-def();
+    }
+    .b-input{
+      padding-left: 25px;
+      &:focus{
+        &+.e-search-icon{
+          color: $brown;
+        }
+      }
+    }
+  }
 }
 
 .b-header {
   display: flex;
   justify-content: flex-start;
   align-items: stretch;
+  min-height: 100vh;
   .e-header-left{
     width: 250px;
+    padding-top: 48px;
+    .b-logo{
+      margin: 0 13px;
+      margin-bottom: 78px;
+    }
   }
   .e-header-right{
-    width: calc(100% - 250px);
+    //width: calc(100% - 250px);
+    width: calc(100% - 247px);
+    position: relative;
   }
   .e-header-top{
-    padding: 0 95px 0 20px;
+    padding: 0 $padding-right-header 0 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: $header-height;
     background-color: $bg;
-    .e-header-top-text{
-      font-size: 14px;
-      line-height: 16px;
-      font-weight: 300;
-      color: $brown;
-      display: inline-block;
-      vertical-align: top;
-      position: relative;
-      @extend .b-link;
-      &+.e-header-top-text{
-        margin-left: 23px;
-        &:before{
-          content: "";
-          position: absolute;
-          top: calc(50% - 6px);
-          left: -12px;
-          height: 11px;
-          width: 1px;
-          background-color: $brown;
-        }
-      }
-    }
   }
   .e-header-tel{
     font-size: 30px;
@@ -245,10 +260,94 @@ section {
     font-weight: 300;
     @extend .b-link;
   }
+  .e-header-text{
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 300;
+    color: $brown;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    @extend .b-link;
+    &+.e-header-text{
+      margin-left: 23px;
+      &:before{
+        content: "";
+        position: absolute;
+        top: calc(50% - 6px);
+        left: -12px;
+        height: 11px;
+        width: 1px;
+        background-color: $brown;
+      }
+    }
+  }
   .e-header-content{
     position: relative;
     z-index: 3;
-    //height: calc(100% - #{$header-height});
+    height: calc(100% - #{$header-height});
+  }
+  .e-header-delivery-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top:0;
+    left: 0;
+    right:0;
+    bottom:0;
+    z-index: 1;
+    .b-delivery{
+      margin-top: 79px;
+    }
+  }
+  .e-bg-container{
+    height: 100%;
+  }
+}
+
+.b-header-second{
+  padding-right: $padding-right-header;
+  padding-left: 40px;
+  display: flex;
+  justify-content: space-between;
+  .e-header-second-left{
+    padding-top: 30px;
+    margin-top: 15px;
+    position: relative;
+    .b-input-container{
+      position: absolute;
+      top:0;
+      left: 0;
+      right:0;
+    }
+  }
+  .e-header-second-nav{
+    margin-top: 45px;
+  }
+  .e-header-text{
+    color: #fff;
+    font-size: 18px;
+    line-height: 20px;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.7);
+    &+.e-header-text{
+      margin-left: 20px;
+      &:before{
+        background-color: #fff;
+      }
+    }
+  }
+  .e-header-second-right{
+    padding-top: 19px;
+    padding-right: 5px;
+    .b-select-container{
+      display: inline-block;
+      vertical-align: top;
+      padding-top: 3px;
+      &+.b-curt-small{
+        margin-left: 29px;
+      }
+    }
   }
 }
 
@@ -257,9 +356,20 @@ section {
   line-height: 20px;
   font-family: "Roboto Condensed";
   font-weight: 700;
-  padding: 6px;
+  padding: 10px 4px 4px;
   cursor: pointer;
+  padding-right: 25px;
+  position: relative;
   @extend .b-link;
+  &:before{
+    @include bootstrap-icon();
+    content: "\e250";
+    position: absolute;
+    top:calc(50% - 5.5px);
+    right: 4px;
+    font-size: 11px;
+    line-height: 11px;
+  }
 }
 
 .b-nav-list {
@@ -295,5 +405,182 @@ section {
         padding: 0;
       }
     }
+  }
+}
+
+// todo Select
+.b-select-container {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 300;
+  position: relative;
+  color: inherit;
+  z-index: 3;
+  .e-select-top {
+    position: relative;
+    font-weight: 400;
+    cursor: pointer;
+    border: 2px solid #fff;
+    padding: 1px 14px 2px 5px;
+    border-radius: 2px;
+  }
+  .e-select-arrow {
+    position: absolute;
+    top: calc(50% - 6px);
+    right: 2px;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 9px;
+    font-size: 8px;
+    @include transition-def();
+  }
+  .e-select-drop-panel {
+    position: absolute;
+    top: 100%;
+    right: calc(50% - 175px);
+    width: 350px;
+    padding-top: 17px;
+    opacity: 0;
+    visibility: hidden;
+    text-align: left;
+    @include transition-def();
+    transform: translateY(20px);
+    &.m-select-left {
+      left: 0;
+      right: auto;
+    }
+    &.m-select-100 {
+      left: 0;
+      right: 0;
+      width: 100% !important;
+    }
+  }
+  &.active {
+    z-index: 7;
+    .e-select-drop-panel {
+      transform: translateY(0px);
+      opacity: 1;
+      visibility: visible;
+    }
+    .e-select-arrow {
+      transform: rotate(180deg);
+    }
+
+  }
+}
+
+.b-select-drop {
+  color: $brown;;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 300;
+  background-color: #fff;
+  @include box-shadow();
+  .e-select-drop-icon-container, .e-select-drop-text-container {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .e-select-drop-icon-container {
+    & + .e-select-drop-text-container {
+      .e-select-drop-text {
+        padding-left: 12px;
+      }
+    }
+  }
+  .e-select-drop-icon {
+    font-size: 22px;
+    padding-right: 10px;
+  }
+  .e-select-drop-text {
+    font-size: 16px;
+  }
+  .e-select-drop-item {
+    cursor: pointer;
+    box-sizing: border-box;
+    @include transition-def();
+    &.active, &:hover {
+      background-color: $brown;
+      color: #fff;
+    }
+  }
+  .e-select-drop-item-container {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+  }
+}
+// todo END Select
+
+.b-curt{
+  width: 38px;
+  background-image: url("../img/curt.png");
+  background-size: contain;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  &-small{
+    @extend .b-curt;
+    width: 21px;
+  }
+}
+
+.b-bubble{
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 300;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: $red;
+  position: absolute;
+  z-index: 2;
+  top: 1px;
+  left: -9px;
+}
+
+.b-delivery{
+  text-align: center;
+  border: 10px solid $green;
+  position: relative;
+  width: 323px;
+  padding: 28px 20px 32px;
+  background-color: rgba(102,154,71, .5);
+  &:before{
+    content: "";
+    position: absolute;
+    z-index: 1;
+    border: 1px solid #fff;
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px
+  }
+  *{
+    position: relative;
+    z-index:3;
+  }
+  .e-delivery-logo{
+    display: inline-block;
+    vertical-align: top;
+  }
+  .e-delivery-footer{
+    padding-top: 175px;
+  }
+  .e-delivery-text{
+    font-size: 35px;
+    line-height: 49px;
+    letter-spacing: 0.4px;
+    color: #fff;
+    font-family: "Nautilus Pompilius";
+    font-weight: 400;
+    text-shadow: 0px 2px 20px rgba(0, 0, 1, 0.9);
+    width: 475px;
+    position: absolute;
+    top: 178px;
+    left: calc(50% - 237.5px);
+    transform: rotate(-9deg);
   }
 }

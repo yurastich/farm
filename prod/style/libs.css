@@ -2069,6 +2069,13 @@ address {
   position: fixed; }
 
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:300,400,500,700&subset=cyrillic");
+/* Nautilus Pompilius */
+@font-face {
+  font-family: "Nautilus Pompilius";
+  src: url("../fonts/8343.eot");
+  src: url("../fonts/8343.eot?#iefix") format("embedded-opentype"), url("../fonts/8343.woff") format("woff"), url("../fonts/8343.ttf") format("truetype"), url("../fonts/8343.svg") format("svg");
+  font-style: normal;
+  font-weight: 400; }
 
 /**
  * Swiper 3.4.0
