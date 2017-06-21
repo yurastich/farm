@@ -74,7 +74,7 @@ gulp.task("media", function () {
 
 gulp.task("watch", function () {
 
-  gulp.watch("dev/style/*/*.scss", ["css"]);
+  gulp.watch("dev/style/*.scss", ["css"]);
   gulp.watch("dev/style/style.scss", ["css"]);
   gulp.watch("dev/style/mixins.scss", ["css"]);
   gulp.watch("dev/js/global.js", ["js"]);
