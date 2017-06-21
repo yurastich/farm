@@ -1707,9 +1707,9 @@ section {
   padding-bottom: 117px; }
   .b-footer .e-footer-left .b-footer-link {
     font-weight: 400; }
-  .b-footer .b-footer-list .e-footer-item {
+  .b-footer .e-footer-left .b-footer-list .e-footer-item {
     padding-top: 3px; }
-    .b-footer .b-footer-list .e-footer-item:first-child {
+    .b-footer .e-footer-left .b-footer-list .e-footer-item:first-child {
       padding-top: 0; }
   .b-footer .b-logo {
     margin-bottom: 42px; }
@@ -1717,7 +1717,7 @@ section {
 .b-footer-link {
   font-size: 14px;
   line-height: 16px;
-  font-weight: 700;
+  font-weight: 500;
   opacity: 1;
   transition: all .3s;
   -webkit-transition: all .3s;

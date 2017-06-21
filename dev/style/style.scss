@@ -1138,12 +1138,12 @@ section {
     .b-footer-link{
       font-weight: 400;
     }
-  }
-  .b-footer-list{
-    .e-footer-item{
-      padding-top: 3px;
-      &:first-child{
-        padding-top: 0;
+    .b-footer-list{
+      .e-footer-item{
+        padding-top: 3px;
+        &:first-child{
+          padding-top: 0;
+        }
       }
     }
   }
@@ -1155,7 +1155,7 @@ section {
 .b-footer-link{
   font-size: 14px;
   line-height: 16px;
-  font-weight: 700;
+  font-weight: 500;
   opacity: 1;
   @include transition-def();
   .e-footer-link-icon{
