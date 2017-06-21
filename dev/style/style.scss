@@ -14,10 +14,10 @@ body{
   background: $bg;
 }
 
-.content {
-  @include transition-def();
-  width: 1440px;
-}
+//.content {
+//  @include transition-def();
+//  width: 1440px;
+//}
 
 .b-link{
   color: $brown;

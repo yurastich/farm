@@ -194,12 +194,14 @@ $(document).ready(function () {
 
   var swiper = new Swiper('.e-first-container.swiper-container', {
     pagination: '.e-first-container .swiper-pagination',
-    paginationClickable: true
+    paginationClickable: true,
+    keyboardControl: true
   });
 
   var swiperGoods = new Swiper('.b-third-good-slider .swiper-container', {
     slidesPerView: 4,
     spaceBetween: 0,
+    keyboardControl: true,
     nextButton: '.js-goods-next',
     prevButton: '.js-goods-prev',
   });
