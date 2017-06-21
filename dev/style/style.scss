@@ -1156,9 +1156,14 @@ section {
   font-size: 14px;
   line-height: 16px;
   font-weight: 700;
+  opacity: 1;
+  @include transition-def();
   .e-footer-link-icon{
     display: inline-block;
     vertical-align: bottom;
+  }
+  &:hover{
+    opacity: .7;
   }
 }
 

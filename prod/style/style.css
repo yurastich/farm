@@ -1717,10 +1717,17 @@ section {
 .b-footer-link {
   font-size: 14px;
   line-height: 16px;
-  font-weight: 700; }
+  font-weight: 700;
+  opacity: 1;
+  transition: all .3s;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -o-transition: all .3s; }
   .b-footer-link .e-footer-link-icon {
     display: inline-block;
     vertical-align: bottom; }
+  .b-footer-link:hover {
+    opacity: .7; }
 
 .b-footer-list .e-footer-item {
   padding-top: 10px; }
