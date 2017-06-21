@@ -1286,7 +1286,7 @@ section {
   position: relative;
   width: 323px;
   padding: 28px 20px 32px;
-  background-color: rgba(102, 154, 71, 0.5); }
+  background-color: rgba(102, 154, 71, 0.6); }
   .b-delivery:before {
     content: "";
     position: absolute;
@@ -1739,55 +1739,6 @@ section {
 
 .b-footer-list + .b-footer-list {
   padding-top: 26px; }
-
-.b-button-menu {
-  display: none;
-  height: 25px;
-  z-index: 5;
-  position: absolute;
-  top: 12px;
-  right: 20px; }
-  .b-button-menu .e-button-menu-line {
-    display: block;
-    width: 38px;
-    height: 5px;
-    border-radius: 2px;
-    position: relative;
-    background-color: #471f16; }
-    .b-button-menu .e-button-menu-line:before {
-      content: '';
-      position: absolute;
-      height: 5px;
-      top: -10px;
-      left: 0;
-      right: 0;
-      background-color: #471f16;
-      border-radius: 2px;
-      -webkit-transition: all .2s;
-      transition: all .2s; }
-    .b-button-menu .e-button-menu-line:after {
-      content: '';
-      position: absolute;
-      height: 5px;
-      bottom: -10px;
-      left: 0;
-      right: 0;
-      border-radius: 2px;
-      background-color: #471f16;
-      -webkit-transition: all .2s;
-      transition: all .2s; }
-  .b-button-menu.active .e-button-menu-line, .b-good.m-good-sm:hover .b-button-menu.b-hover-panel .e-button-menu-line, .b-big-good .m-good-sm.e-big-good-right:hover .b-button-menu.b-hover-panel .e-button-menu-line, .b-hover-panel .b-button-menu.b-circles .e-button-menu-line {
-    background-color: transparent; }
-    .b-button-menu.active .e-button-menu-line:before, .b-good.m-good-sm:hover .b-button-menu.b-hover-panel .e-button-menu-line:before, .b-big-good .m-good-sm.e-big-good-right:hover .b-button-menu.b-hover-panel .e-button-menu-line:before, .b-hover-panel .b-button-menu.b-circles .e-button-menu-line:before {
-      -webkit-transform: rotate(45deg);
-              transform: rotate(45deg);
-      top: 0;
-      background-color: #471f16; }
-    .b-button-menu.active .e-button-menu-line:after, .b-good.m-good-sm:hover .b-button-menu.b-hover-panel .e-button-menu-line:after, .b-big-good .m-good-sm.e-big-good-right:hover .b-button-menu.b-hover-panel .e-button-menu-line:after, .b-hover-panel .b-button-menu.b-circles .e-button-menu-line:after {
-      -webkit-transform: rotate(-45deg);
-              transform: rotate(-45deg);
-      bottom: 0;
-      background-color: #471f16; }
 
 .b-button-menu {
   display: none;
